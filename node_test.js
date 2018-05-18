@@ -70,7 +70,7 @@ let arrTimes = [];
 
 const getInfo = ()=>{
     const user = {
-        uid: "FqFgZD6F9oQVV04mQ3JzgtHyZqq1"
+        uid: "XJdVLBnb6oRX1CW1KrMCJyLEbYN2"
     }
     fetch('https://ams-aquarium.herokuapp.com/api/get_all_aquariums', {
             method: 'post',
@@ -82,7 +82,7 @@ const getInfo = ()=>{
         })
         .then(response => response.json())
       .then(response => {
-        console.log(response)
+        jsonAction = response[2];
       })
         .catch(error => console.log(error))
 }
@@ -93,8 +93,10 @@ const sendInfo = ()=>{
     arrTemps.push(currentTemp);
     arrTimes.push(new moment().tz("America/Sao_Paulo").format("MM/DD/YYYY-HH:mm:ss"));
     if(arrTemps.length > 5 && arrTimes.length > 5){
+        //XJdVLBnb6oRX1CW1KrMCJyLEbYN2 - AMS
+        //BXy5aXkIRFhFU2Y98dBk02gQeSs2 - Teste
         const data = {
-            uid: "FqFgZD6F9oQVV04mQ3JzgtHyZqq1",
+            uid: "XJdVLBnb6oRX1CW1KrMCJyLEbYN2",
             idAquarium: "serialNumberFromArduino",
             aquarium: {
               name: "aquarioMockData",
@@ -138,7 +140,35 @@ const sendInfo = ()=>{
     }
 }
 
-setInterval(sendInfo, 1000);
+setInterval(sendInfo, 5000);
+
+const logicData = ()=>{
+    //console.log(jsonAction);
+
+    if(jsonAction.temperature.working){
+        onHeater = true;
+    } else{
+        onHeater = false;
+    }
+    if(jsonAction.temperature.targetTemp !== targetTemp){
+       targetTemp = parseFloat(jsonAction.temperature.targetTemp);
+    }
+    if(jsonAction.luminosity.working){
+        onLED = true;
+    } else{
+        onLED = false;
+    }
+    if(jsonAction.luminosity.hoursCycleLED !== targetTimeLED){
+        targetTimeLED = parseFloat(jsonAction.luminosity.hoursCycleLED);
+    } 
+    if(jsonAction.food.hoursCycleFood !== targetTimeFOOD){
+        targetTimeFOOD = parseFloat(jsonAction.food.hoursCycleFood);
+    } 
+}
+
+setTimeout(function(){
+    setInterval(logicData, 1000);
+}, 10000);
 
 board = new five.Board({ port: 'COM3', repl: false, autoRun: true,  samplingInterval: 100, baud: 9600});
 
