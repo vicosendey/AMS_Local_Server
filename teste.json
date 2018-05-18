@@ -1,0 +1,25 @@
+const data = {
+    uid: "ER8uojqH0hTOCju7rEGgaMnpieJ3",
+    idAquarium: "serialNumberFromArduino",
+    aquarium: {
+      name: "aquarioMockData",
+      food: {
+        hoursCycleFood: 12,
+        feededToday: 1,
+        lastFeed: 12010202301203,
+        nextFeed: 19391293129391
+      },
+      temperature: {
+        celsius: [10, 20, 30, 40, 50],
+        time: [1526074389, 1526174389, 1526274389, 1526374389, 1526474389]
+      },
+      waterLevel: 3,
+      luminosity: 10,
+      _settings: {
+        targetTemp: 27,
+        hoursCycleFood: 1,
+        hoursCycleLED: 10
+      },
+      _nextAction: [["temp", 30], ["luminosity", 15], ["food", 1]]
+    }
+  };

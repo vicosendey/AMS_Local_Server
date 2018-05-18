@@ -1,0 +1,64 @@
+.root{
+    &__container{
+        &__content{
+            &__banner{
+                &__text{
+                    hr{
+                        margin-left: -10%;
+                        width: 120%;
+                        height: 2px;
+                        border: none;
+                        background-color: rgba(255, 255, 255, 0.8);
+                        border-radius: 0 0 3px 3px;
+                        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+                    }
+                }
+            }
+            &__info{
+                &__config{
+                    display: flex;
+                    flex-direction: column;
+                    width: 45rem;
+                    height: 20rem;
+                    margin-bottom: 3rem;
+                    background-color: white;
+                    box-shadow: 2px 5px 2px rgba(0, 0, 0, 0.1);
+                    border-radius: 2px;
+                    transition: all .2s;
+                    &__item{
+                        padding: 1rem;
+                        h3{
+                            color: rgba(0, 0, 0, 0.5);
+                            font-weight: 700;
+                            text-transform: uppercase;
+                        }
+                        form{
+                            display: flex;
+                            input{
+                                text-transform: uppercase;
+                                display: block;
+                                border: none;
+                                padding: .5rem 1rem;
+                                background-color: $color-primary;
+                                color: white;
+                                outline: none;
+                            }
+                            input:hover{
+                                cursor: pointer;
+                            }
+                            input:active{
+                                outline: none;
+                            }
+                            input:not(:first-child){
+                                margin-left: 1rem;
+                            }
+                        }
+                    }
+                    &__item:nth-child(2n){
+                        background-color: rgba(0, 0, 0, 0.05);
+                    }
+                }
+            }
+        }
+    }
+}

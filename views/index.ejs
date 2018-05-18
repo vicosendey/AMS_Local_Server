@@ -1,0 +1,142 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <title>LAMS || Local Aquarium Monitoring Server</title>
+</head>
+<body>
+    <div class="root">
+        <div class="root__container">
+            <header class="root__container__header">
+                <nav class="root__container__header__nav">
+                    <li class="root__container__header__nav__item"><a class="root__container__header__nav__item__link active" href="/"><span>Home</span></a></li>
+                    <li class="root__container__header__nav__item"><a class="root__container__header__nav__item__link" href="#"><span>About</span></a></li>
+                </nav>
+            </header>
+            <main class="root__container__content">
+                <div class="root__container__content__banner">
+                    <div class="root__container__content__banner__img"></div>
+                    <div class="root__container__content__banner__text">
+                        <h1>LAMS</h1>
+                        <p>Local Aquarium Monitoring Server</p>
+                    </div>
+                </div>
+                <div class="root__container__content__info">
+                    <div class="root__container__content__info__title"><h2>General Info</h2></div>
+                    <div class="root__container__content__info__area">
+                        <div class="root__container__content__info__area__status">
+                            <div class="root__container__content__info__area__status__title">
+                                <h3><svg class="root__container__content__info__area__status__title__icon"><use xlink:href="css/img/sprite.svg#icon-inbox"></use></svg> Aquarium</h3>
+                            </div>
+                            <div class="root__container__content__info__area__status__item">
+                                <svg class="root__container__content__info__area__status__item__icon-temp"><use xlink:href="css/img/sprite.svg#icon-thermometer"></use></svg>
+                                <span class="root__container__content__info__area__status__item__name">
+                                    Temperature
+                                </span>
+                                <span class="root__container__content__info__area__status__item__data">38C</span>
+                            </div>
+                            <div class="root__container__content__info__area__status__item">
+                                <svg class="root__container__content__info__area__status__item__icon-food"><use xlink:href="css/img/sprite.svg#icon-spoon-knife"></use></svg>
+                                <span class="root__container__content__info__area__status__item__name">
+                                    Last Time Fed
+                                </span>
+                                <span class="root__container__content__info__area__status__item__data">17h30</span>
+                            </div>
+                            <div class="root__container__content__info__area__status__item">
+                                <svg class="root__container__content__info__area__status__item__icon-quality"><use xlink:href="css/img/sprite.svg#icon-happy"></use></svg>
+                                <span class="root__container__content__info__area__status__item__name">
+                                    Quality
+                                </span>
+                                <span class="root__container__content__info__area__status__item__data">Great</span>
+                            </div>
+                            <div class="root__container__content__info__area__status__item">
+                                <svg class="root__container__content__info__area__status__item__icon-light"><use xlink:href="css/img/sprite.svg#icon-lightbulb_outline"></use></svg>
+                                <span class="root__container__content__info__area__status__item__name">
+                                    Light
+                                </span>
+                                <span class="root__container__content__info__area__status__item__data">On</span>
+                            </div>
+                        </div>
+                        <div class="root__container__content__info__area__status">
+                            <div class="root__container__content__info__area__status__title">
+                                <h3><svg class="root__container__content__info__area__status__title__icon"><use xlink:href="css/img/sprite.svg#icon-developer_board"></use></svg> Arduino Board</h3>
+                            </div>
+                            <div class="root__container__content__info__area__status__item">
+                                <svg class="root__container__content__info__area__status__item__icon-work"><use xlink:href="css/img/sprite.svg#icon-loop2"></use></svg>
+                                <span class="root__container__content__info__area__status__item__name">
+                                    Working
+                                </span>
+                                <span id="working" class="root__container__content__info__area__status__item__data">
+                                    
+                                </span>
+                            </div>
+                            <div class="root__container__content__info__area__status__item">
+                                <svg class="root__container__content__info__area__status__item__icon-port"><use xlink:href="css/img/sprite.svg#icon-cord"></use></svg>
+                                <span class="root__container__content__info__area__status__item__name">
+                                    Serial Port
+                                </span>
+                                <span id="serialPort" class="root__container__content__info__area__status__item__data">
+                                    
+                                </span>
+                            </div>
+                            <div class="root__container__content__info__area__status__item">
+                                <svg class="root__container__content__info__area__status__item__icon-model"><use xlink:href="css/img/sprite.svg#icon-laptop"></use></svg>
+                                <span class="root__container__content__info__area__status__item__name">
+                                    Model
+                                </span>
+                                <span class="root__container__content__info__area__status__item__data">Nano</span>
+                            </div>
+                            <div class="root__container__content__info__area__status__item">
+                                <svg class="root__container__content__info__area__status__item__icon-time"><use xlink:href="css/img/sprite.svg#icon-clock"></use></svg>
+                                <span class="root__container__content__info__area__status__item__name">
+                                    Runtime
+                                </span>
+                                <span id="time" class="root__container__content__info__area__status__item__data"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="root__container__content__info__title"><h2>Arduino Options</h2></div>
+                        <div class="root__container__content__info__area">
+                            <div class="root__container__content__info__config">
+                                <div class="root__container__content__info__config__item">
+                                    <h3>PORT</h3>
+                                    <form action="/aquarium" method="POST">
+                                        <select id="select" name="port">
+
+                                        </select>
+                                        <input type="submit" value="Set">
+                                    </form>
+                                </div>
+                                <div class="root__container__content__info__config__item">
+                                    <h3>Connection test</h3>
+                                    <form action="/aquarium" method="POST">
+                                        <input type="submit" id= 'btn_on' name="ledon" value="LED ON">
+                                        <input type="submit" id= 'btn_off' name="ledoff" value="LED OFF">
+                                    </form>
+                                </div>
+                                <div class="root__container__content__info__config__item">
+                                    <h3>Server Communication Test</h3>
+                                    <form action="/api/test" method="get">
+                                        <input type="submit" id="submit_test" value="Post">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </main>
+            <footer class="root__footer">
+                <div class="root__footer__text">
+                    <p>&rsaquo; Course: Computer Engineering</p>
+                    <p>&rsaquo; Subject: Real-time Systems</p>
+                    <p>&rsaquo; Professor: Dora Vilanova</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
